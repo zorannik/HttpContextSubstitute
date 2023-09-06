@@ -18,8 +18,8 @@ namespace HttpContextSubstitute
 
         public object this[Type key]
         {
-            get => this.Mock.Object[key];
-            set => this.Mock.Object[key] = value;
+            get => this.Mock[key];
+            set => this.Mock[key] = value;
         }
 
         public bool IsReadOnly => this.Mock.IsReadOnly;

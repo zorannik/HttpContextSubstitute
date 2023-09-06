@@ -28,8 +28,8 @@ namespace HttpContextSubstitute.Extensions
                 httpContextMock.RequestMock.Mock.Host.Returns(new HostString(uri.Host));
             }
 
-            httpContextMock.RequestMock.Mock.PathBase.Returns(string.Empty);
-            httpContextMock.RequestMock.Mock.Path.Returns(uri.AbsolutePath);
+            httpContextMock.RequestMock.Mock.PathBase.Returns(new PathString());
+            httpContextMock.RequestMock.Mock.Path.Returns(new PathString(uri.AbsolutePath));
 
             var queryString = QueryString.FromUriComponent(uri);
             httpContextMock.RequestMock.Mock.QueryString.Returns(queryString);

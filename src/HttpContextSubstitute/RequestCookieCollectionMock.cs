@@ -15,7 +15,7 @@ namespace HttpContextSubstitute
 
         public IRequestCookieCollection Mock { get; }
 
-        public string this[string key] => this.Mock.Object[key];
+        public string this[string key] => this.Mock[key];
 
         public int Count => this.Mock.Count;
 

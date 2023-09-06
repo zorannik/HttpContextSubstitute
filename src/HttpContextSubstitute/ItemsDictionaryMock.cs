@@ -15,8 +15,8 @@ namespace HttpContextSubstitute
 
         object IDictionary<object, object>.this[object key]
         {
-            get => this.Mock.Object[key];
-            set => this.Mock.Object[key] = value;
+            get => this.Mock[key];
+            set => this.Mock[key] = value;
         }
 
         void IDictionary<object, object>.Add(object key, object value) => this.Mock.Add(key, value);

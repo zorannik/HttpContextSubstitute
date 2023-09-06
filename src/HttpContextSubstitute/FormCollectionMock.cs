@@ -32,7 +32,7 @@ namespace HttpContextSubstitute
             }
         }
 
-        public StringValues this[string key] => this.Mock.Object[key];
+        public StringValues this[string key] => this.Mock[key];
 
         public int Count => this.Mock.Count;
 

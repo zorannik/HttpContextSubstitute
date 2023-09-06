@@ -15,9 +15,9 @@ namespace HttpContextSubstitute
 
         public IFormFileCollection Mock { get; }
 
-        public IFormFile this[string name] => this.Mock.Object[name];
+        public IFormFile this[string name] => this.Mock[name];
 
-        public IFormFile this[int index] => this.Mock.Object[index];
+        public IFormFile this[int index] => this.Mock[index];
 
         public int Count => this.Mock.Count;
 
