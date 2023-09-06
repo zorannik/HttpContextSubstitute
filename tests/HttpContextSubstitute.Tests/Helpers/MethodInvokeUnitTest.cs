@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using HttpContextSubstitute.Generic;
 using NSubstitute;
+using NSubstitute.ReceivedExtensions;
 
 namespace HttpContextSubstitute.Tests
 {
@@ -10,9 +11,9 @@ namespace HttpContextSubstitute.Tests
         where TContextMock : class, IContextMock<TContext>, TContext
     {
         private readonly Expression<Action<TContext>> _invokeExpression;
-        private readonly Func<Times> _times;
+        private readonly Func<Quantity> _times;
 
-        public MethodInvokeUnitTest(Expression<Action<TContext>> invokeExpression, Func<Times> times = null)
+        public MethodInvokeUnitTest(Expression<Action<TContext>> invokeExpression, Func<Quantity> times = null)
         {
             _invokeExpression = invokeExpression;
             _times = times;

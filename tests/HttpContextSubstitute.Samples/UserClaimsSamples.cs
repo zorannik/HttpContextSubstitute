@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using NSubstitute;
 using Xunit;
 
 namespace HttpContextSubstitute.Samples;
@@ -16,7 +17,7 @@ public class UserClaimsSamples
         var context = new HttpContextMock();
 
         // Act
-        context.UserMock.Mock.Setup(u => u.HasClaim(type, value)).Returns(true);
+        context.UserMock.HasClaim(type, value).Returns(true);
 
         // Assert
         context.User.HasClaim(type, value).Should().BeTrue();

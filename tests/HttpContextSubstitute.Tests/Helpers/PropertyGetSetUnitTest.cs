@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using HttpContextSubstitute.Generic;
 using NSubstitute;
+using NSubstitute.ReceivedExtensions;
 
 namespace HttpContextSubstitute.Tests
 {
@@ -15,7 +16,7 @@ namespace HttpContextSubstitute.Tests
         public PropertyGetSetUnitTest(
             Expression<Func<TContext, TProperty>> getterExpression,
             Action<TContext> setterExpression,
-            Func<Times> times = null)
+            Func<Quantity> times = null)
         {
             _getUnitTest = new PropertyGetUnitTest<TContextMock, TContext, TProperty>(getterExpression, times);
             _setUnitTest = new PropertySetUnitTest<TContextMock, TContext>(setterExpression, times);

@@ -1,6 +1,7 @@
 ﻿using System;
 using HttpContextSubstitute.Generic;
 using NSubstitute;
+using NSubstitute.ReceivedExtensions;
 
 namespace HttpContextSubstitute.Tests
 {
@@ -9,9 +10,9 @@ namespace HttpContextSubstitute.Tests
         where TContextMock : class, IContextMock<TContext>, TContext
     {
         private readonly Action<TContext> _setterExpression;
-        private readonly Func<Times> _times;
+        private readonly Func<Quantity> _times;
 
-        public PropertySetUnitTest(Action<TContext> setterExpression, Func<Times> times = null)
+        public PropertySetUnitTest(Action<TContext> setterExpression, Func<Quantity> times = null)
         {
             _setterExpression = setterExpression;
             _times = times;
@@ -26,7 +27,7 @@ namespace HttpContextSubstitute.Tests
             _setterExpression.Invoke(target);
 
             // Assert
-            target.Mock.VerifySet(_setterExpression, _times ?? Times.Once);
+            target.Mock.Received(_times() ?? Quantity.Exactly(1));
         }
     }
 }
