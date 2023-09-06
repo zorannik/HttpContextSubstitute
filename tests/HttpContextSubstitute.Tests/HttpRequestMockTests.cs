@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
@@ -79,7 +79,7 @@ public class HttpRequestMockTests
                     t => t.Query, Times.Never
                 ),
                 new FuncAndAssertResultUnitTest<HttpRequestMock, IQueryCollection>(
-                    t => t.Query = new Mock<IQueryCollection>().Object,
+                    t => t.Query = Substitute.For<IQueryCollection>(),
                     (t, v) => t.QueryMock.Should().BeNull(),
                     (t, v) => t.Query.Should().BeSameAs(v)
                 ),
@@ -94,7 +94,7 @@ public class HttpRequestMockTests
                     t => t.Cookies, Times.Never
                 ),
                 new FuncAndAssertResultUnitTest<HttpRequestMock, IRequestCookieCollection>(
-                    t => t.Cookies = new Mock<IRequestCookieCollection>().Object,
+                    t => t.Cookies = Substitute.For<IRequestCookieCollection>(),
                     (t, v) => t.CookiesMock.Should().BeNull(),
                     (t, v) => t.Cookies.Should().BeSameAs(v)
                 ),
@@ -109,14 +109,14 @@ public class HttpRequestMockTests
                     t => t.Form, Times.Never
                 ),
                 new FuncAndAssertResultUnitTest<HttpRequestMock, IFormCollection>(
-                    t => t.Form = new Mock<IFormCollection>().Object,
+                    t => t.Form = Substitute.For<IFormCollection>(),
                     (t, v) => t.FormMock.Should().BeNull(),
                     (t, v) => t.Form.Should().BeSameAs(v)
                 ),
                 //Properties
                 new PropertyGetSetUnitTest<HttpRequestMock, HttpRequest, Stream>(
                     t => t.Body,
-                    t => t.Body = It.IsAny<Stream>()
+                    t => t.Body = Arg.Any<Stream>()
                 ),
                 new PropertyGetSetUnitTest<HttpRequestMock, HttpRequest, long?>(
                     t => t.ContentLength,

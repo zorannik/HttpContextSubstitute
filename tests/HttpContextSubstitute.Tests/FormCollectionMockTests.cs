@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
@@ -44,7 +44,7 @@ namespace HttpContextSubstitute.Tests
                 ),
                 //Methods
                 new MethodInvokeUnitTest<FormCollectionMock, IFormCollection>(
-                    t => t.ContainsKey(It.IsAny<string>())
+                    t => t.ContainsKey(Arg.Any<string>())
                 ),
                 new MethodInvokeUnitTest<FormCollectionMock, IFormCollection>(
                     t => t.GetEnumerator()

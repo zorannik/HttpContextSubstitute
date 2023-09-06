@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http.Features;
@@ -44,7 +44,7 @@ namespace HttpContextSubstitute.Tests
                     t => t.Mock.As<IEnumerable>().Verify(x => x.GetEnumerator())
                 ),
                 new MethodInvokeUnitTest<FeatureCollectionMock, IFeatureCollection>(
-                    t => t.Set<FeatureCollectionMockTests>(It.IsAny<FeatureCollectionMockTests>()), Times.Never
+                    t => t.Set<FeatureCollectionMockTests>(Arg.Any<FeatureCollectionMockTests>()), Times.Never
                 ),
                 new ActionAndAssertUnitTest<FeatureCollectionMock>(
                     t => t.Set<string>(Fakes.String),

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading;
@@ -105,7 +105,7 @@ namespace HttpContextSubstitute.Tests
                     (t, v) => t.Mocks.Get<SessionMock>().Should().BeSameAs(v)
                 ),
                 new FuncAndAssertResultUnitTest<HttpContextMock, ISession>(
-                    t => t.Session = new Mock<ISession>().Object,
+                    t => t.Session = Substitute.For<ISession>(),
                     (t, v) => t.SessionMock.Should().BeNull(),
                     (t, v) => t.Session.Should().BeSameAs(v)
                 ),

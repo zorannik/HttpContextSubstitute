@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -63,7 +63,7 @@ namespace HttpContextSubstitute.Tests
                 //Properties
                 new PropertyGetSetUnitTest<HttpResponseMock, HttpResponse, Stream>(
                     t => t.Body,
-                    t => t.Body = It.IsAny<Stream>()
+                    t => t.Body = Arg.Any<Stream>()
                 ),
                 new PropertyGetSetUnitTest<HttpResponseMock, HttpResponse, long?>(
                     t => t.ContentLength,
@@ -82,16 +82,16 @@ namespace HttpContextSubstitute.Tests
                 ),
                 //Methods
                 new MethodInvokeUnitTest<HttpResponseMock, HttpResponse>(
-                    t => t.OnCompleted(It.IsAny<Func<Task>>())
+                    t => t.OnCompleted(Arg.Any<Func<Task>>())
                 ),
                 new MethodInvokeUnitTest<HttpResponseMock, HttpResponse>(
-                    t => t.OnCompleted(It.IsAny<Func<object, Task>>(), It.IsAny<object>())
+                    t => t.OnCompleted(Arg.Any<Func<object, Task>>(), Arg.Any<object>())
                 ),
                 new MethodInvokeUnitTest<HttpResponseMock, HttpResponse>(
-                    t => t.OnStarting(It.IsAny<Func<Task>>())
+                    t => t.OnStarting(Arg.Any<Func<Task>>())
                 ),
                 new MethodInvokeUnitTest<HttpResponseMock, HttpResponse>(
-                    t => t.OnStarting(It.IsAny<Func<object, Task>>(), It.IsAny<object>())
+                    t => t.OnStarting(Arg.Any<Func<object, Task>>(), Arg.Any<object>())
                 ),
                 new MethodInvokeUnitTest<HttpResponseMock, HttpResponse>(
                     t => t.Redirect(Fakes.String)
@@ -100,7 +100,7 @@ namespace HttpContextSubstitute.Tests
                     t => t.Redirect(Fakes.String, Fakes.Bool)
                 ),
                 new MethodInvokeUnitTest<HttpResponseMock, HttpResponse>(
-                    t => t.RegisterForDispose(It.IsAny<IDisposable>())
+                    t => t.RegisterForDispose(Arg.Any<IDisposable>())
                 )
             }.ToData();
     }

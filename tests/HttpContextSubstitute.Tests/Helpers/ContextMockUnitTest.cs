@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using FluentAssertions;
 using HttpContextSubstitute.Generic;
 using NSubstitute;
@@ -16,7 +16,7 @@ namespace HttpContextSubstitute.Tests
 
             // Assert
             target.Mock.Should().NotBeNull();
-            target.Mock.Should().BeOfType(typeof(Mock<TSubTarget>));
+            target.Mock.Should().BeOfType(typeof(TSubTarget));
 
             if (target is IContextMocks<TSubTarget> contextMocks)
             {

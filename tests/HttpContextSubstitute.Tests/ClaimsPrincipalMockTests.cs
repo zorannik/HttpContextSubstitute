@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Claims;
@@ -40,37 +40,37 @@ namespace HttpContextSubstitute.Tests
                 ),
                 //Methods
                 new MethodInvokeUnitTest<ClaimsPrincipalMock, ClaimsPrincipal>(
-                    t => t.AddIdentities(It.IsAny<IEnumerable<ClaimsIdentity>>())
+                    t => t.AddIdentities(Arg.Any<IEnumerable<ClaimsIdentity>>())
                 ),
                 new MethodInvokeUnitTest<ClaimsPrincipalMock, ClaimsPrincipal>(
-                    t => t.AddIdentity(It.IsAny<ClaimsIdentity>())
+                    t => t.AddIdentity(Arg.Any<ClaimsIdentity>())
                 ),
                 new MethodInvokeUnitTest<ClaimsPrincipalMock, ClaimsPrincipal>(
                     t => t.Clone()
                 ),
                 new MethodInvokeUnitTest<ClaimsPrincipalMock, ClaimsPrincipal>(
-                    t => t.FindAll(It.IsAny<Predicate<Claim>>())
+                    t => t.FindAll(Arg.Any<Predicate<Claim>>())
                 ),
                 new MethodInvokeUnitTest<ClaimsPrincipalMock, ClaimsPrincipal>(
-                    t => t.FindAll(It.IsAny<string>())
+                    t => t.FindAll(Arg.Any<string>())
                 ),
                 new MethodInvokeUnitTest<ClaimsPrincipalMock, ClaimsPrincipal>(
-                    t => t.FindFirst(It.IsAny<Predicate<Claim>>())
+                    t => t.FindFirst(Arg.Any<Predicate<Claim>>())
                 ),
                 new MethodInvokeUnitTest<ClaimsPrincipalMock, ClaimsPrincipal>(
-                    t => t.FindFirst(It.IsAny<string>())
+                    t => t.FindFirst(Arg.Any<string>())
                 ),
                 new MethodInvokeUnitTest<ClaimsPrincipalMock, ClaimsPrincipal>(
-                    t => t.HasClaim(It.IsAny<Predicate<Claim>>())
+                    t => t.HasClaim(Arg.Any<Predicate<Claim>>())
                 ),
                 new MethodInvokeUnitTest<ClaimsPrincipalMock, ClaimsPrincipal>(
-                    t => t.HasClaim(It.IsAny<string>(), It.IsAny<string>())
+                    t => t.HasClaim(Arg.Any<string>(), Arg.Any<string>())
                 ),
                 new MethodInvokeUnitTest<ClaimsPrincipalMock, ClaimsPrincipal>(
-                    t => t.IsInRole(It.IsAny<string>())
+                    t => t.IsInRole(Arg.Any<string>())
                 ),
                 new MethodInvokeUnitTest<ClaimsPrincipalMock, ClaimsPrincipal>(
-                    t => t.WriteTo(It.IsAny<BinaryWriter>())
+                    t => t.WriteTo(Arg.Any<BinaryWriter>())
                 ),
             }.ToData();
     }

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
@@ -49,7 +49,7 @@ namespace HttpContextSubstitute.Tests
                 ),
                 //Methods
                 new MethodInvokeUnitTest<ConnectionInfoMock, ConnectionInfo>(
-                    t => t.GetClientCertificateAsync(It.IsAny<CancellationToken>())
+                    t => t.GetClientCertificateAsync(Arg.Any<CancellationToken>())
                 ),
             }.ToData();
     }

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using NSubstitute;
 using Xunit;
@@ -22,7 +22,7 @@ namespace HttpContextSubstitute.Tests
                 //Properties
                 new PropertyGetSetUnitTest<ItemsDictionaryMock, IDictionary<object, object>, object>(
                     t => t[Fakes.Object],
-                    t => t[Fakes.Object] = Fakes.Object
+                    t => t[Fakes.Object] = Fakes
                 ),
                 new PropertyGetUnitTest<ItemsDictionaryMock, IDictionary<object, object>, ICollection<object>>(
                     t => t.Keys
@@ -38,32 +38,32 @@ namespace HttpContextSubstitute.Tests
                 ),
                 //Methods
                 new MethodInvokeUnitTest<ItemsDictionaryMock, IDictionary<object, object>>(
-                    t => t.Add(Fakes.Object, Fakes.Object)
+                    t => t.Add(Fakes, Fakes)
                 ),
                 new MethodInvokeUnitTest<ItemsDictionaryMock, IDictionary<object, object>>(
-                    t => t.ContainsKey(Fakes.Object)
+                    t => t.ContainsKey(Fakes)
                 ),
                 new MethodInvokeUnitTest<ItemsDictionaryMock, IDictionary<object, object>>(
-                    t => t.Remove(Fakes.Object)
+                    t => t.Remove(Fakes)
                 ),
                 new MethodInvokeUnitTest<ItemsDictionaryMock, IDictionary<object, object>>(
-                    t => t.TryGetValue(Fakes.Object, out Fakes.OutObject)
+                    t => t.TryGetValue(Fakes, out Fakes.OutObject)
                 ),
                 new MethodInvokeUnitTest<ItemsDictionaryMock, IDictionary<object, object>>(
-                    t => t.Add(It.IsAny<KeyValuePair<object, object>>())
+                    t => t.Add(Arg.Any<KeyValuePair<object, object>>())
                 ),
                 new MethodInvokeUnitTest<ItemsDictionaryMock, IDictionary<object, object>>(
                     t => t.Clear()
                 ),
                 new MethodInvokeUnitTest<ItemsDictionaryMock, IDictionary<object, object>>(
-                    t => t.Contains(It.IsAny<KeyValuePair<object, object>>())
+                    t => t.Contains(Arg.Any<KeyValuePair<object, object>>())
                 ),
                 new MethodInvokeUnitTest<ItemsDictionaryMock, IDictionary<object, object>>(
-                    t => t.CopyTo(It.IsAny<KeyValuePair<object, object>[]>(), Fakes.Int)
+                    t => t.CopyTo(Arg.Any<KeyValuePair<object, object>[]>(), Fakes.Int)
                 ),
                 new ActionAndAssertUnitTest<ItemsDictionaryMock>(
-                    t => ((ICollection<KeyValuePair<object, object>>)t).Remove(It.IsAny<KeyValuePair<object, object>>()),
-                    t => t.Mock.As<ICollection<KeyValuePair<object, object>>>().Verify(x => x.Remove(It.IsAny<KeyValuePair<object, object>>()))
+                    t => ((ICollection<KeyValuePair<object, object>>)t).Remove(Arg.Any<KeyValuePair<object, object>>()),
+                    t => t.Mock.As<ICollection<KeyValuePair<object, object>>>().Verify(x => x.Remove(Arg.Any<KeyValuePair<object, object>>()))
                 ),
                 new MethodInvokeUnitTest<ItemsDictionaryMock, IDictionary<object, object>>(
                     t => t.GetEnumerator()

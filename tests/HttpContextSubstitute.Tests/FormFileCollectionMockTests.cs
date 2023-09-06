@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using NSubstitute;
@@ -39,10 +39,10 @@ namespace HttpContextSubstitute.Tests
                     t => t.Mock.As<IEnumerable>().Verify(x => x.GetEnumerator())
                 ),
                 new MethodInvokeUnitTest<FormFileCollectionMock, IFormFileCollection>(
-                    t => t.GetFile(It.IsAny<string>())
+                    t => t.GetFile(Arg.Any<string>())
                 ),
                 new MethodInvokeUnitTest<FormFileCollectionMock, IFormFileCollection>(
-                    t => t.GetFiles(It.IsAny<string>())
+                    t => t.GetFiles(Arg.Any<string>())
                 ),
             }.ToData();
     }

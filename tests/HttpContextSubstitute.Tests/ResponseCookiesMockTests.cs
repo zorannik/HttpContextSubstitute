@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using NSubstitute;
 using Xunit;
@@ -24,13 +24,13 @@ namespace HttpContextSubstitute.Tests
                     t => t.Append(Fakes.String, Fakes.String)
                 ),
                 new MethodInvokeUnitTest<ResponseCookiesMock, IResponseCookies>(
-                    t => t.Append(Fakes.String, Fakes.String, It.IsAny<CookieOptions>())
+                    t => t.Append(Fakes.String, Fakes.String, Arg.Any<CookieOptions>())
                 ),
                 new MethodInvokeUnitTest<ResponseCookiesMock, IResponseCookies>(
                     t => t.Delete(Fakes.String)
                 ),
                 new MethodInvokeUnitTest<ResponseCookiesMock, IResponseCookies>(
-                    t => t.Delete(Fakes.String, It.IsAny<CookieOptions>())
+                    t => t.Delete(Fakes.String, Arg.Any<CookieOptions>())
                 ),
             }.ToData();
     }

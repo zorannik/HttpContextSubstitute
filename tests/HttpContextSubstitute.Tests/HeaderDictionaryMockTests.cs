@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Primitives;
@@ -47,19 +47,19 @@ namespace HttpContextSubstitute.Tests
                     t => t.Add(Fakes.String, Fakes.StringValues)
                 ),
                 new MethodInvokeUnitTest<HeaderDictionaryMock, IHeaderDictionary>(
-                    t => t.Add(It.IsAny<KeyValuePair<string, StringValues>>())
+                    t => t.Add(Arg.Any<KeyValuePair<string, StringValues>>())
                 ),
                 new MethodInvokeUnitTest<HeaderDictionaryMock, IHeaderDictionary>(
                     t => t.Clear()
                 ),
                 new MethodInvokeUnitTest<HeaderDictionaryMock, IHeaderDictionary>(
-                    t => t.Contains(It.IsAny<KeyValuePair<string, StringValues>>())
+                    t => t.Contains(Arg.Any<KeyValuePair<string, StringValues>>())
                 ),
                 new MethodInvokeUnitTest<HeaderDictionaryMock, IHeaderDictionary>(
                     t => t.ContainsKey(Fakes.String)
                 ),
                 new MethodInvokeUnitTest<HeaderDictionaryMock, IHeaderDictionary>(
-                    t => t.CopyTo(It.IsAny<KeyValuePair<string, StringValues>[]>(), Fakes.Int)
+                    t => t.CopyTo(Arg.Any<KeyValuePair<string, StringValues>[]>(), Fakes.Int)
                 ),
                 new MethodInvokeUnitTest<HeaderDictionaryMock, IHeaderDictionary>(
                     t => t.GetEnumerator()
@@ -72,7 +72,7 @@ namespace HttpContextSubstitute.Tests
                     t => t.Remove(Fakes.String)
                 ),
                 new MethodInvokeUnitTest<HeaderDictionaryMock, IHeaderDictionary>(
-                    t => t.Remove(It.IsAny<KeyValuePair<string, StringValues>>())
+                    t => t.Remove(Arg.Any<KeyValuePair<string, StringValues>>())
                 ),
                 new MethodInvokeUnitTest<HeaderDictionaryMock, IHeaderDictionary>(
                     t => t.TryGetValue(Fakes.String, out Fakes.OutStringValues)
