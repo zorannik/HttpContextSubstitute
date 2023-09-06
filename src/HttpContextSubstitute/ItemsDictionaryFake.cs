@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NSubstitute;
@@ -50,7 +50,7 @@ namespace HttpContextSubstitute
 
         bool ICollection<KeyValuePair<object, object>>.IsReadOnly => _items.IsReadOnly;
 
-        public Mock<IDictionary<object, object>> Mock => throw new InvalidOperationException();
+        public IDictionary<object, object> Mock => throw new InvalidOperationException();
 
         bool ICollection<KeyValuePair<object, object>>.Remove(KeyValuePair<object, object> item)
         {

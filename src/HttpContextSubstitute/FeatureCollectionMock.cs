@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using HttpContextSubstitute.Generic;
@@ -11,10 +11,10 @@ namespace HttpContextSubstitute
     {
         public FeatureCollectionMock()
         {
-            this.Mock = new Mock<IFeatureCollection>();
+            this.Mock = Substitute.For<IFeatureCollection>();
         }
 
-        public Mock<IFeatureCollection> Mock { get; }
+        public IFeatureCollection Mock { get; }
 
         public object this[Type key]
         {
@@ -22,16 +22,16 @@ namespace HttpContextSubstitute
             set => this.Mock.Object[key] = value;
         }
 
-        public bool IsReadOnly => this.Mock.Object.IsReadOnly;
+        public bool IsReadOnly => this.Mock.IsReadOnly;
 
-        public int Revision => this.Mock.Object.Revision;
+        public int Revision => this.Mock.Revision;
 
-        public TFeature Get<TFeature>() => this.Mock.Object.Get<TFeature>();
+        public TFeature Get<TFeature>() => this.Mock.Get<TFeature>();
 
-        public IEnumerator<KeyValuePair<Type, object>> GetEnumerator() => this.Mock.Object.GetEnumerator();
+        public IEnumerator<KeyValuePair<Type, object>> GetEnumerator() => this.Mock.GetEnumerator();
 
-        public void Set<TFeature>(TFeature instance) => this.Mock.Setup(x => x.Get<TFeature>()).Returns(instance);
+        public void Set<TFeature>(TFeature instance) => this.Mock.Get<TFeature>().Returns(instance);
 
-        IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)this.Mock.Object).GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)this.Mock).GetEnumerator();
     }
 }

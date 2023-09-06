@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
@@ -88,7 +88,7 @@ namespace HttpContextSubstitute
 
         public bool IsReadOnly { get; set; }
 
-        public Mock<IHeaderDictionary> Mock => throw new InvalidOperationException();
+        public IHeaderDictionary Mock => throw new InvalidOperationException();
 
         public void Add(string key, StringValues value)
         {
